@@ -1,0 +1,35 @@
+2018-05-19 21:42:20.875[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2018-05-19 21:42:20.924[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-==> Parameters: 0(Integer), 3(Integer)
+2018-05-19 21:42:20.959[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-<==      Total: 3
+2018-05-19 21:42:20.970[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-==>  Preparing: SELECT count(1) FROM tb_product 
+2018-05-19 21:42:20.970[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-==> Parameters: 
+2018-05-19 21:42:20.972[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-<==      Total: 1
+2018-05-19 21:43:34.904[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2018-05-19 21:43:34.948[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-==> Parameters: 0(Integer), 3(Integer)
+2018-05-19 21:43:34.981[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-<==      Total: 3
+2018-05-19 21:43:34.991[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-==>  Preparing: SELECT count(1) FROM tb_product 
+2018-05-19 21:43:34.991[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-==> Parameters: 
+2018-05-19 21:43:34.993[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-<==      Total: 1
+2018-05-19 21:43:34.995[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE product_name like '%测试%' ORDER BY priority DESC LIMIT ?,?; 
+2018-05-19 21:43:34.996[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-==> Parameters: 0(Integer), 3(Integer)
+2018-05-19 21:43:34.999[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductList-<==      Total: 1
+2018-05-19 21:43:35.001[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-==>  Preparing: SELECT count(1) FROM tb_product WHERE product_name like '%测试%' 
+2018-05-19 21:43:35.002[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-==> Parameters: 
+2018-05-19 21:43:35.006[main]DEBUG com.chen.o2o.dao.ProductDao.queryProductCount-<==      Total: 1
+2018-05-19 23:40:04.416[main]DEBUG c.c.o2o.dao.ProductDao.updateProductCategoryToNull-==>  Preparing: UPDATE tb_product SET product_category_id = null WHERE product_category_id = ? 
+2018-05-19 23:40:04.462[main]DEBUG c.c.o2o.dao.ProductDao.updateProductCategoryToNull-==> Parameters: 2(Long)
+2018-05-19 23:40:04.476[main]DEBUG c.c.o2o.dao.ProductDao.updateProductCategoryToNull-<==    Updates: 3
+2018-05-19 23:54:08.939[main]DEBUG com.chen.o2o.dao.HeadLineDao.queryHeadLine-==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time, FROM tb_head_line ORDER BY priority DESC 
+2018-05-19 23:54:08.981[main]DEBUG com.chen.o2o.dao.HeadLineDao.queryHeadLine-==> Parameters: 
+2018-05-19 23:54:52.501[main]DEBUG com.chen.o2o.dao.HeadLineDao.queryHeadLine-==>  Preparing: SELECT line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time FROM tb_head_line ORDER BY priority DESC 
+2018-05-19 23:54:52.541[main]DEBUG com.chen.o2o.dao.HeadLineDao.queryHeadLine-==> Parameters: 
+2018-05-19 23:54:52.560[main]DEBUG com.chen.o2o.dao.HeadLineDao.queryHeadLine-<==      Total: 0
+2018-05-19 23:57:16.192[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is NULL ORDER BY priority DESC 
+2018-05-19 23:57:16.250[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-==> Parameters: 
+2018-05-19 23:57:16.278[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-<==      Total: 1
+2018-05-19 23:58:12.619[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is NULL ORDER BY priority DESC 
+2018-05-19 23:58:12.658[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-==> Parameters: 
+2018-05-19 23:58:12.677[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-<==      Total: 1
+2018-05-19 23:58:12.691[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id IS NOT NULL AND parent_id = ? ORDER BY priority DESC 
+2018-05-19 23:58:12.692[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-==> Parameters: 1(Long)
+2018-05-19 23:58:12.694[main]DEBUG com.chen.o2o.dao.ShopCategoryDao.queryShopCategory-<==      Total: 1
