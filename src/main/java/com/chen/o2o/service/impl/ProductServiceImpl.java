@@ -3,7 +3,7 @@ package com.chen.o2o.service.impl;
 import com.chen.o2o.dao.ProductDao;
 import com.chen.o2o.dao.ProductImgDao;
 import com.chen.o2o.dto.ImageHolder;
-import com.chen.o2o.dto.ProductExcution;
+import com.chen.o2o.dto.ProductExecution;
 import com.chen.o2o.entity.Product;
 import com.chen.o2o.entity.ProductImg;
 import com.chen.o2o.enums.ProductStateEnum;
@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public ProductExcution addProduct(Product product, ImageHolder imageHolder, List<ImageHolder> imageHolderList) throws ProductOperationException {
+    public ProductExecution addProduct(Product product, ImageHolder imageHolder, List<ImageHolder> imageHolderList) throws ProductOperationException {
        /*
        @Param imageHolder 缩略图
        @Pram imageHolderList 详情图
@@ -60,9 +60,9 @@ public class ProductServiceImpl implements ProductService {
            if(imageHolderList !=null && imageHolderList.size()>0){
                addProductImgList(product,imageHolderList);
            }
-           return new ProductExcution(ProductStateEnum.SUCCESS,product);
+           return new ProductExecution(ProductStateEnum.SUCCESS,product);
        }else{
-           return new ProductExcution(ProductStateEnum.EMPTY_LIST);
+           return new ProductExecution(ProductStateEnum.EMPTY_LIST);
        }
     }
 
@@ -80,7 +80,7 @@ public class ProductServiceImpl implements ProductService {
     3.将tb_product_img下面的该商品原先的商品详情图记录全部清除
     4.更新tb_product的信息
      */
-    public ProductExcution modifyProduct(Product product, ImageHolder thumbnail, List<ImageHolder> imageHolderList) throws ProductOperationException {
+    public ProductExecution modifyProduct(Product product, ImageHolder thumbnail, List<ImageHolder> imageHolderList) throws ProductOperationException {
         //空值判断
         if(product !=null && product.getShop() !=null && product.getShop().getShopId() !=null) {
             //给商品设置默认值
@@ -105,26 +105,26 @@ public class ProductServiceImpl implements ProductService {
                 if (effectNum <= 0) {
                     throw new ProductOperationException("更新商品信息失败");
                 }
-                return new ProductExcution(ProductStateEnum.SUCCESS, product);
+                return new ProductExecution(ProductStateEnum.SUCCESS, product);
             } catch (Exception e) {
                 throw new ProductOperationException("更新商品信息失败:" + e.toString());
             }
         }else{
-            return new ProductExcution(ProductStateEnum.EMPTY);
+            return new ProductExecution(ProductStateEnum.EMPTY);
         }
     }
 
     @Override
-    public ProductExcution getProductList(Product productCondition, int pageIndex, int pageSize) {
+    public ProductExecution getProductList(Product productCondition, int pageIndex, int pageSize) {
        //页码转换成数据库行代码，并代用dao层取回指定页码的商品列表
         int rowIndex = PageCalculator.calculateRowIndex(pageIndex,pageSize);
         List<Product> productList = productDao.queryProductList(productCondition,rowIndex,pageSize);
         //基于同样的查询条件返回该查询条件下的商品总数
         int count = productDao.queryProductCount(productCondition);
-        ProductExcution productExcution = new ProductExcution();
-        productExcution.setCount(count);
-        productExcution.setProductList(productList);
-        return productExcution;
+        ProductExecution productExecution = new ProductExecution();
+        productExecution.setCount(count);
+        productExecution.setProductList(productList);
+        return productExecution;
     }
 
     /*

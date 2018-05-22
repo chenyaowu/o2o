@@ -2,10 +2,9 @@ package com.chen.o2o.service;
 
 import com.chen.o2o.BaseTest;
 import com.chen.o2o.dto.ImageHolder;
-import com.chen.o2o.dto.ProductExcution;
+import com.chen.o2o.dto.ProductExecution;
 import com.chen.o2o.entity.Product;
 import com.chen.o2o.entity.ProductCategory;
-import com.chen.o2o.entity.ProductImg;
 import com.chen.o2o.entity.Shop;
 import com.chen.o2o.enums.ProductStateEnum;
 import org.junit.Test;
@@ -45,8 +44,8 @@ public class ProductServiceTest extends BaseTest {
         ImageHolder imageHolder1 = new ImageHolder(file1.getName(),is2);
         List<ImageHolder> productImgList = new ArrayList<ImageHolder>();
         productImgList.add(imageHolder1);
-        ProductExcution productExcution =  productService.addProduct(product,imageHolder,productImgList);
-        assertEquals(ProductStateEnum.SUCCESS.getState(),productExcution.getState());
+        ProductExecution productExecution =  productService.addProduct(product,imageHolder,productImgList);
+        assertEquals(ProductStateEnum.SUCCESS.getState(), productExecution.getState());
 
     }
     @Test
@@ -72,7 +71,7 @@ public class ProductServiceTest extends BaseTest {
         List<ImageHolder> productImgList = new ArrayList<ImageHolder>();
         productImgList.add(new ImageHolder(productImg1.getName(),is1));
         productImgList.add(new ImageHolder(productImg2.getName(),is2));
-        ProductExcution productExcution = productService.modifyProduct(product,thumbnail,productImgList);
-        assertEquals(1,productExcution.getState());
+        ProductExecution productExecution = productService.modifyProduct(product,thumbnail,productImgList);
+        assertEquals(1, productExecution.getState());
     }
 }

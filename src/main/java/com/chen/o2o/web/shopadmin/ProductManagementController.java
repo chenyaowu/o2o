@@ -1,7 +1,7 @@
 package com.chen.o2o.web.shopadmin;
 
 import com.chen.o2o.dto.ImageHolder;
-import com.chen.o2o.dto.ProductExcution;
+import com.chen.o2o.dto.ProductExecution;
 import com.chen.o2o.entity.Product;
 import com.chen.o2o.entity.ProductCategory;
 import com.chen.o2o.entity.Shop;
@@ -58,10 +58,10 @@ public class ProductManagementController {
             String productName = HttpServletRequestUtil.getString(request,"productName");
             Product productCondition = compactProductCondition(currentShop.getShopId(),productCategoryId,productName);
             //传入查询条件以及分页信息,返回相应商品列表以及总数
-            ProductExcution productExcution = productService.getProductList(productCondition,pageIndex,pageSize);
+            ProductExecution productExecution = productService.getProductList(productCondition,pageIndex,pageSize);
             modelMap.put("success",true);
-            modelMap.put("count",productExcution.getCount());
-            modelMap.put("productList",productExcution.getProductList());
+            modelMap.put("count", productExecution.getCount());
+            modelMap.put("productList", productExecution.getProductList());
         }else{
             modelMap.put("success",false);
             modelMap.put("errMsg","empty pageSize or pageIndex or shopId");
@@ -153,12 +153,12 @@ public class ProductManagementController {
                 shop.setShopId(currentShop.getShopId());
                 product.setShop(shop);
                 //执行添加操作
-                ProductExcution productExcution = productService.addProduct(product,thumbnail,productImgList);
-                if(productExcution.getState() == ProductStateEnum.SUCCESS.getState()){
+                ProductExecution productExecution = productService.addProduct(product,thumbnail,productImgList);
+                if(productExecution.getState() == ProductStateEnum.SUCCESS.getState()){
                     modelMap.put("success",true);
                 }else{
                     modelMap.put("success",false);
-                    modelMap.put("errMsg",productExcution.getStateInfo());
+                    modelMap.put("errMsg", productExecution.getStateInfo());
                 }
             } catch (ProductOperationException e) {
                modelMap.put("succcess",false);
@@ -217,12 +217,12 @@ public class ProductManagementController {
                 Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
                 product.setShop(currentShop);
                 //开始进行商品信息变更
-                ProductExcution productExcution = productService.modifyProduct(product,thumbnail,productImgList);
-                if(productExcution.getState() == ProductStateEnum.SUCCESS.getState()){
+                ProductExecution productExecution = productService.modifyProduct(product,thumbnail,productImgList);
+                if(productExecution.getState() == ProductStateEnum.SUCCESS.getState()){
                     modelMap.put("success",true);
                 }else{
                     modelMap.put("success",false);
-                    modelMap.put("errMsg",productExcution.getStateInfo());
+                    modelMap.put("errMsg", productExecution.getStateInfo());
                 }
             } catch (RuntimeException e) {
                 modelMap.put("success",false);

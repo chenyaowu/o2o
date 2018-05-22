@@ -5,7 +5,7 @@ import com.chen.o2o.enums.ProductStateEnum;
 
 import java.util.List;
 
-public class ProductExcution {
+public class ProductExecution {
     //结果状态
     private int state;
     //状态标识
@@ -17,22 +17,22 @@ public class ProductExcution {
     //获取的product列表（查询商品列表时候用)
     private List<Product> productList;
 
-    public ProductExcution() {
+    public ProductExecution() {
 
     }
     //成功的构造器
-    public ProductExcution(ProductStateEnum stateEnum, Product product) {
+    public ProductExecution(ProductStateEnum stateEnum, Product product) {
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
         this.product = product;
     }
-    public ProductExcution(ProductStateEnum stateEnum,List<Product> productList){
+    public ProductExecution(ProductStateEnum stateEnum, List<Product> productList){
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
         this.productList = productList;
     }
     //操作失败构造器
-    public ProductExcution(ProductStateEnum productStateEnum){
+    public ProductExecution(ProductStateEnum productStateEnum){
         this.state = productStateEnum.getState();
         this.stateInfo = productStateEnum.getStateInfo();
     }
