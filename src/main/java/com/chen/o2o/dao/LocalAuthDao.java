@@ -32,8 +32,12 @@ public interface LocalAuthDao {
 	int insertLocalAuth(LocalAuth localAuth);
 
 	/**
-	 * 
-	 * @param localAuth
+	 *
+	 * @param userId
+	 * @param userName
+	 * @param password
+	 * @param newPassword
+	 * @param lastEditTime
 	 * @return
 	 */
 	int updateLocalAuth(@Param("userId") Long userId,

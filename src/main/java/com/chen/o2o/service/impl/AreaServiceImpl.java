@@ -26,7 +26,7 @@ public class AreaServiceImpl implements AreaService {
     @Autowired
     private JedisUtil.Strings jedisStrings;
 
-    private static String AREALISTKEY = "arealist";
+
     private static Logger logger = LoggerFactory.getLogger(AreaServiceImpl.class);
 
     @Autowired

@@ -105,8 +105,10 @@ public class LocalAuthServiceImpl implements LocalAuthService {
 		try {
 			localAuth.setCreateTime(new Date());
 			localAuth.setLastEditTime(new Date());
+			//对密码进行MD5加密
 			localAuth.setPassword(MD5.getMd5(localAuth.getPassword()));
 			int effectedNum = localAuthDao.insertLocalAuth(localAuth);
+			//判断创建是否成功
 			if (effectedNum <= 0) {
 				throw new RuntimeException("帐号绑定失败");
 			} else {
@@ -123,9 +125,11 @@ public class LocalAuthServiceImpl implements LocalAuthService {
 	@Transactional
 	public LocalAuthExecution modifyLocalAuth(Long userId, String userName,
 			String password, String newPassword) {
+		//非空判断
 		if (userId != null && userName != null && password != null
 				&& newPassword != null && !password.equals(newPassword)) {
 			try {
+				//更新密码，并对密码进行MD5加密
 				int effectedNum = localAuthDao.updateLocalAuth(userId,
 						userName, MD5.getMd5(password),
 						MD5.getMd5(newPassword), new Date());
