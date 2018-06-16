@@ -107,6 +107,11 @@ public class ShopServiceImpl implements ShopService {
         return shopExecution;
     }
 
+    @Override
+    public ShopExecution getByEmployeeId(Long userId) {
+        return null;
+    }
+
     //添加图片
     private void addShopImg(Shop shop, ImageHolder imageHolder) {
         //获取shop图片目录的相对值路径

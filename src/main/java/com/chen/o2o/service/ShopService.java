@@ -18,4 +18,6 @@ public interface ShopService {
 
     //根据shopCondition返回相应列表数据
     ShopExecution getShopList(Shop shopCondition,int pageIndex,int pageSize);
+
+    ShopExecution getByEmployeeId(Long userId);
 }

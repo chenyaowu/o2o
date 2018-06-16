@@ -5,9 +5,9 @@ $(function () {
     //一页返回的最大条数
     var pageSize = 10;
     //获取店铺Url
-    var listUrl = '/myo2o/frontend/listshops';
+    var listUrl = '/o2o/frontend/listshops';
 
-    var searchDivUrl = '/myo2o/frontend/listshopspageinfo';
+    var searchDivUrl = '/o2o/frontend/listshopspageinfo';
     //页码
     var pageNum = 1;
     var parentId = getQueryString('parentId');
@@ -100,7 +100,7 @@ $(function () {
 
     $('.shop-list').on('click', '.card', function (e) {
         var shopId = e.currentTarget.dataset.shopId;
-        window.location.href = '/myo2o/frontend/shopdetail?shopId=' + shopId;
+        window.location.href = '/o2o/frontend/shopdetail?shopId=' + shopId;
     });
 
     $('#shoplist-search-div').on(
