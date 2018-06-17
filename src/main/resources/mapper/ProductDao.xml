@@ -15,7 +15,7 @@
         <result column="create_time" property="createTime"/>
         <result column="last_edit_time" property="lastEditTime"/>
         <result column="enable_status" property="enableStatus"/>
-
+        <result column="point" property="point"/>
         <association property="productCategory" column="product_category_id"
             javaType="com.chen.o2o.entity.ProductCategory">
             <id column="product_category_id" property="productCategoryId"/>
@@ -53,7 +53,8 @@
         pm.img_addr AS detail_img,
         pm.img_desc,
         pm.priority,
-        pm.create_time
+        pm.create_time,
+        pm.point
         FROM
         tb_product p
         LEFT JOIN
@@ -72,13 +73,13 @@
         tb_product(
         product_name,product_desc,img_addr,
         normal_price,promotion_price,priority,create_time,
-        last_edit_time,enable_status,product_category_id,
+        last_edit_time,enable_status,point,product_category_id,
         shop_id
         )
         VALUES
         (
         #{productName},#{productDesc},#{imgAddr},#{normalPrice},#{promotionPrice},
-        #{priority},#{createTime},#{lastEditTime},#{enableStatus},#{productCategory.productCategoryId},
+        #{priority},#{createTime},#{lastEditTime},#{enableStatus},#{point},#{productCategory.productCategoryId},
         #{shop.shopId}
         )
     </insert>
@@ -93,6 +94,7 @@
             <if test="priority != null">priority=#{priority},</if>
             <if test="lastEditTime != null">last_edit_time=#{lastEditTime},</if>
             <if test="enableStatus != null">enable_status=#{enableStatus},</if>
+            <if test="point != null">point=#{point},</if>
             <if test="productCategory != null and productCategory.productCategoryId !=null">
                 product_category_id=#{productCategory.productCategoryId},
             </if>
@@ -113,6 +115,7 @@
         create_time,
         last_edit_time,
         enable_status,
+        point,
         product_category_id,
         shop_id
         FROM

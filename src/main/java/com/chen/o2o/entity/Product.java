@@ -19,6 +19,8 @@ public class Product {
     private String promotionPrice;
     //权重
     private Integer priority;
+    //积分
+    private Integer point;
     //创建时间
     private Date createTime;
     //最后编辑时间
@@ -136,4 +138,11 @@ public class Product {
         this.shop = shop;
     }
 
+    public Integer getPoint() {
+        return point;
+    }
+
+    public void setPoint(Integer point) {
+        this.point = point;
+    }
 }

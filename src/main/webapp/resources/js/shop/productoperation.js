@@ -83,6 +83,7 @@ $(function () {
         product.productName = $('#product-name').val();
         product.productDesc = $('#product-desc').val();
         product.priority = $('#priority').val();
+        product.point = $('#point').val();
         product.normalPrice = $('#normal-price').val();
         product.promotionPrice=$('#promotion_price').val();
         product.productCategory = {
