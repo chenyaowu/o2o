@@ -94,11 +94,11 @@ public class LocalAuthServiceImpl implements LocalAuthService {
 			throws RuntimeException {
 		if (localAuth == null || localAuth.getPassword() == null
 				|| localAuth.getUserName() == null
-				|| localAuth.getUserId() == null) {
+				|| localAuth.getPersonInfo().getUserId() == null) {
 			return new LocalAuthExecution(LocalAuthStateEnum.NULL_AUTH_INFO);
 		}
 		LocalAuth tempAuth = localAuthDao.queryLocalByUserId(localAuth
-				.getUserId());
+				.getPersonInfo().getUserId());
 		if (tempAuth != null) {
 			return new LocalAuthExecution(LocalAuthStateEnum.ONLY_ONE_ACCOUNT);
 		}

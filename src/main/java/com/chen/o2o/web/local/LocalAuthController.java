@@ -7,6 +7,7 @@ import com.chen.o2o.enums.LocalAuthStateEnum;
 import com.chen.o2o.service.LocalAuthService;
 import com.chen.o2o.util.CodeUtil;
 import com.chen.o2o.util.HttpServletRequestUtil;
+import com.chen.o2o.util.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +24,13 @@ public class LocalAuthController {
     @Autowired
     private LocalAuthService localAuthService;
 
-    @RequestMapping(value = "/bindlocalauth",method = RequestMethod.POST)
-    @ResponseBody
     /**
      * 将用户信息与平台账号进行绑定
-     *
+     * @param request
+     * @return
      */
+    @RequestMapping(value = "/bindlocalauth",method = RequestMethod.POST)
+    @ResponseBody
     private Map<String,Object> bindLocalAuth(HttpServletRequest request){
         Map<String,Object> modelMap = new HashMap<String,Object>();
         //验证码校验
@@ -85,7 +87,7 @@ public class LocalAuthController {
                 && !password.equals(newPassword)){
             //查看原先账号，看看与输入的账号是否一致，不一致认为非法操作
             LocalAuth localAuth = localAuthService.getLocalAuthByUserId(personInfo.getUserId());
-            if(localAuth != null || !localAuth.getUserName().equals(userName)){
+            if(localAuth == null || !localAuth.getUserName().equals(userName)){
                 //不一致则直接退出
                 modelMap.put("success",false);
                 modelMap.put("errMsg","输入的账号非本次登录的账号");
@@ -124,7 +126,7 @@ public class LocalAuthController {
         //非空校验
         if (userName != null && password != null){
             //传入账号和密码去获取平台账号信息
-            LocalAuth localAuth = localAuthService.getLocalAuthByUserNameAndPwd(userName,password);
+            LocalAuth localAuth = localAuthService.getLocalAuthByUserNameAndPwd(userName, MD5.getMd5(password));
             if(localAuth != null){
                 //若能取到账号信息则登录成功
                 modelMap.put("success",true);

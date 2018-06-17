@@ -16,6 +16,7 @@ public class JedisUtil {
 	 */
 	private final int expire = 60000;
 	/** 操作Key的方法 */
+
 	public Keys KEYS;
 	/** 对存储结构为String类型的操作 */
 	public Strings STRINGS;
@@ -68,7 +69,7 @@ public class JedisUtil {
 	/**
 	 * 设置默认过期时间
 	 * 
-	 * @author ruan 2013-4-11
+	 * @author
 	 * @param key
 	 */
 	public void expire(String key) {

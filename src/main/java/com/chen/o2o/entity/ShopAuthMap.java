@@ -5,9 +5,9 @@ import java.util.Date;
 public class ShopAuthMap {
 
 	private Long shopAuthId;
-	private Long employeeId;
-	private Long shopId;
-	private String name;
+//	private Long employeeId;
+//	private Long shopId;
+//	private String name;
 	private String title;
 	private Integer titleFlag;
 	private Integer enableStatus;
@@ -22,30 +22,6 @@ public class ShopAuthMap {
 
 	public void setShopAuthId(Long shopAuthId) {
 		this.shopAuthId = shopAuthId;
-	}
-
-	public Long getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getTitle() {
@@ -102,10 +78,5 @@ public class ShopAuthMap {
 
 	public void setShop(Shop shop) {
 		this.shop = shop;
-	}
-
-	public String toString() {
-		return "[shopId=" + shopId + ", employeeId=" + employeeId
-				+ ", employeeName=" + name + "]";
 	}
 }

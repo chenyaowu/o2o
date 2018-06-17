@@ -101,7 +101,7 @@
 		INTO
 		tb_local_auth(user_name,password,user_id,create_time,last_edit_time)
 		VALUES
-		(#{userName},#{password},#{userId},#{createTime},#{lastEditTime})
+		(#{userName},#{password},#{personInfo.userId},#{createTime},#{lastEditTime})
 	</insert>
 	<update id="updateLocalAuth">
 		update tb_local_auth
