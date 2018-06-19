@@ -15,6 +15,6 @@ public interface ProductCategoryDao {
     //删除指定商品类别
     int deleteProductCategory(@Param("productCategoryId") long productCategoryId,@Param("shopId") long shopId);
 
-    List<ProductCategory> queryByShopId(long shopId);
+
 }
 

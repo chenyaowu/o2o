@@ -28,9 +28,9 @@ public class ProductCategoryManagementController {
     @RequestMapping(value = "/getproductcategorylist",method = RequestMethod.GET)
     @ResponseBody
     private Result<List<ProductCategory>> getProductCategoryList(HttpServletRequest request){
-        Shop shop = new Shop();
-        shop.setShopId(3L);
-        request.getSession().setAttribute("currentShop",shop);
+//        Shop shop = new Shop();
+//        shop.setShopId(3L);
+//        request.getSession().setAttribute("currentShop",shop);
 
         Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
         List<ProductCategory> productCategoryList = null;

@@ -4,7 +4,6 @@ import com.chen.o2o.cache.JedisUtil;
 import com.chen.o2o.dao.ShopCategoryDao;
 import com.chen.o2o.entity.ShopCategory;
 import com.chen.o2o.service.ShopCategoryService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

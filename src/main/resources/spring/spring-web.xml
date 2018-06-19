@@ -45,12 +45,12 @@
             <!--shoplist page-->
             <mvc:exclude-mapping path="/shopadmin/shoplist"/>
             <mvc:exclude-mapping path="/shopadmin/getshoplist"/>
-            <!--shopregister page-->
+            <!--shop register page-->
             <mvc:exclude-mapping path="/shopadmin/getshopinitinfo"/>
             <mvc:exclude-mapping path="/shopadmin/registershop"/>
             <mvc:exclude-mapping path="/shopadmin/shopoperation"/>
-            <!--shopmanager page-->
-            <mvc:exclude-mapping path="/shopadmin/shopmanagerment"/>
+            <!--shopmanager page shopmanagement-->
+            <mvc:exclude-mapping path="/shopadmin/shopmanagement"/>
             <mvc:exclude-mapping path="/shopadmin/getshopmanagementinfo"/>
             <bean id="ShopPermissionInterceptor" class="com.chen.o2o.interceptor.shopadmin.ShopPermissionInterceptor"/>
         </mvc:interceptor>

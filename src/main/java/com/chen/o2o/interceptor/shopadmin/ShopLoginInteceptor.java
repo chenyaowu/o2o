@@ -25,7 +25,7 @@ public class ShopLoginInteceptor extends HandlerInterceptorAdapter{
         out.print("<html>");
         out.print("<script>");
         out.print("window.open('"+request.getContextPath()+"/local/login?usertype=2','_self')");
-        out.print("<script>");
+        out.print("</script>");
         out.print("</html>");
         return false;
     }
